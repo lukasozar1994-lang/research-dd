@@ -79,6 +79,7 @@ research-driven-setup install --non-interactive
 | `research-driven-setup update` | Update to newer framework version |
 | `research-driven-setup list-profiles` | List available profiles |
 | `research-driven-setup report` | Show last install/doctor report |
+| `research-driven-setup uninstall` | Remove framework assets from workspace |
 | `research-driven-setup --help` | Show help |
 | `research-driven-setup --version` | Show version |
 
@@ -86,8 +87,10 @@ research-driven-setup install --non-interactive
 
 | Profile | Description |
 |---------|-------------|
-| `ubuntu-research` (default) | Full research-driven workflow for Ubuntu |
-| `ubuntu-research-playwright` | Adds Playwright browser automation |
+| `ubuntu-research` (default) | Core research-driven workflow: deep research, planning, implementation, diagnostics |
+| `ubuntu-research-playwright` | Everything from the default profile plus Playwright CLI agents for E2E testing |
+
+See [Playwright CLI Guide](playwright-cli.md) for details on the Playwright profile.
 
 ## Prerequisites
 
@@ -119,6 +122,22 @@ Secrets are never committed to version-controlled files:
 - `CONTEXT7_API_KEY` is stored in `.env` (which should be in `.gitignore`)
 - `.env.example` provides guidance on required variables
 - GitHub MCP authentication is handled through VS Code's OAuth flow
+
+## Uninstalling
+
+To remove all framework-generated files from your workspace:
+
+```bash
+research-driven-setup uninstall
+```
+
+This reads the install marker (`.research-driven/install.json`) and removes all files that were written during installation. Use `--keep-mcp` to preserve `.vscode/mcp.json` or `--keep-npm` to preserve `package.json` and `node_modules`.
+
+To also remove the CLI tool itself:
+
+```bash
+uv tool uninstall research-driven-setup
+```
 
 ## Troubleshooting
 

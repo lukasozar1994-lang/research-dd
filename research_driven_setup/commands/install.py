@@ -130,11 +130,13 @@ def install(
     render_results = render_workspace(manifest, target, force=force)
 
     written = sum(1 for r in render_results if r.action in (ConflictAction.WRITE, ConflictAction.OVERWRITE))
-    skipped = sum(1 for r in render_results if r.action == ConflictAction.SKIP)
+    skipped = [r for r in render_results if r.action == ConflictAction.SKIP]
     blocked = sum(1 for r in render_results if r.action == ConflictAction.BLOCK)
     console.print(f"  [green]✓[/green] {written} file(s) written")
     if skipped:
-        console.print(f"  [yellow]⏭[/yellow] {skipped} file(s) skipped (already exist)")
+        console.print(f"  [yellow]⏭[/yellow] {len(skipped)} file(s) skipped:")
+        for r in skipped:
+            console.print(f"     [dim]- {r.path}[/dim] ({r.reason})")
     if blocked:
         console.print(f"  [red]🚫[/red] {blocked} file(s) blocked (conflicts)")
     console.print()
@@ -204,7 +206,7 @@ def install(
         f"Profile: {selected_profile.display_name}\n"
         f"Version: {__version__}\n"
         f"Files written: {written}\n"
-        f"Files skipped: {skipped}\n\n"
+        f"Files skipped: {len(skipped)}\n\n"
         + (
             "[bold yellow]Next steps:[/bold yellow]\n"
             "1. Open VS Code in this workspace\n"

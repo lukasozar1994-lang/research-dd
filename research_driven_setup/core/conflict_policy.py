@@ -39,4 +39,4 @@ def check_conflict(
         return ConflictResult(path=relative_path, action=ConflictAction.OVERWRITE, reason="policy=overwrite")
     if policy == "block":
         return ConflictResult(path=relative_path, action=ConflictAction.BLOCK, reason="user-owned file, will not overwrite")
-    return ConflictResult(path=relative_path, action=ConflictAction.SKIP, reason="file exists, skipping")
+    return ConflictResult(path=relative_path, action=ConflictAction.SKIP, reason=f"already exists ({relative_path}), use --force to overwrite")

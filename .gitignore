@@ -8,6 +8,9 @@
 /.vscode
 /research_data
 
+# Sandbox for testing
+/sandbox
+
 
 # Python cache and compiled artifacts
 __pycache__/

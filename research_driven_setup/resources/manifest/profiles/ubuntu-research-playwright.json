@@ -1,7 +1,7 @@
 {
   "name": "ubuntu-research-playwright",
-  "display_name": "Ubuntu Research + Playwright",
-  "description": "Research-driven workflow with Playwright browser automation for end-to-end testing and frontend debugging.",
+  "display_name": "Research & Development + Playwright E2E Testing",
+  "description": "Everything from the default profile plus Playwright CLI agents for automated browser testing. Choose this if your project has a web frontend or you need E2E test automation.",
   "includes_playwright": true,
   "mcp_servers": ["github", "sequential-thinking", "filesystem", "open-websearch", "context7"],
   "managed_files": [],

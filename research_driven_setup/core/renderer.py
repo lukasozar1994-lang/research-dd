@@ -32,11 +32,13 @@ def render_workspace(
     template_root = _template_base()
 
     for mf in manifest.managed_files:
-        if mf.source == "template":
+        if mf.source == "generated":
+            # Generated files (.vscode/mcp.json, package.json, .env.example) are
+            # handled by their respective modules — don't include them in the
+            # template render results so they aren't counted as "skipped".
+            continue
+        elif mf.source == "template":
             result = _render_template_file(mf, template_root, workspace, force)
-        elif mf.source == "generated":
-            # Generated files are handled by their respective modules
-            result = ConflictResult(path=mf.relative_path, action=ConflictAction.SKIP, reason="generated elsewhere")
         elif mf.source == "skill_catalog":
             result = _render_skill_stub(mf, template_root, workspace, force)
         else:

@@ -59,9 +59,11 @@ from research_driven_setup.commands.doctor import doctor  # noqa: E402
 from research_driven_setup.commands.update import update  # noqa: E402
 from research_driven_setup.commands.list_profiles import list_profiles  # noqa: E402
 from research_driven_setup.commands.report import report  # noqa: E402
+from research_driven_setup.commands.uninstall import uninstall  # noqa: E402
 
 app.command(name="install", help="Run the interactive install flow.")(install)
 app.command(name="doctor", help="Validate prerequisites, generated assets, and MCP readiness.")(doctor)
 app.command(name="update", help="Update the workspace to a newer framework release.")(update)
 app.command(name="list-profiles", help="List available installation profiles.")(list_profiles)
 app.command(name="report", help="Show the last install or doctor report.")(report)
+app.command(name="uninstall", help="Remove framework assets from the workspace.")(uninstall)

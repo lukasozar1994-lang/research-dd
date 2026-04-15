@@ -31,6 +31,7 @@
     {"relative_path": ".github/prompts/github-mcp-oauth-smoke-test.prompt.md", "source": "template", "overwrite_policy": "skip", "description": "GitHub MCP OAuth Smoke Test"},
     {"relative_path": ".github/prompts/agent-implementation.prompt.md", "source": "template", "overwrite_policy": "skip", "description": "Agent Implementation Prompt"},
     {"relative_path": ".github/prompts/workspace-create.prompt.md", "source": "template", "overwrite_policy": "skip", "description": "Workspace Create Prompt"},
+    {"relative_path": ".github/prompts/playwright-e2e-test.prompt.md", "source": "template", "overwrite_policy": "skip", "description": "Playwright E2E Test Prompt Template"},
     {"relative_path": ".github/instructions/python.instructions.md", "source": "template", "overwrite_policy": "skip", "description": "Python coding instructions"},
     {"relative_path": ".github/instructions/playwright-cli.instructions.md", "source": "template", "overwrite_policy": "skip", "description": "Playwright CLI instructions"},
     {"relative_path": ".github/scripts/start-context7-mcp.sh", "source": "template", "overwrite_policy": "overwrite", "description": "Context7 MCP startup script"},
