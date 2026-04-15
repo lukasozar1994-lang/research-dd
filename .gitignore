@@ -1,6 +1,7 @@
 # Foldery
 /.venv
 /.pytest_cache
+/research_driven_setup.egg-info
 
 # Python cache and compiled artifacts
 __pycache__/
