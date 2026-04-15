@@ -3,6 +3,8 @@ name: plan-architect-validation
 description: 'Validate a project planning package before implementation. Use for test matrix construction, installation verification steps, readiness review, blocked-state reporting, and traceability checks between planning artifacts.'
 ---
 
+<!-- user-language: en -->
+
 # Plan Architect Validation
 
 Use this skill at the end of the planning workflow, after the specification, stack verification, and implementation plan already exist.

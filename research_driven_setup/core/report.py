@@ -18,12 +18,14 @@ def generate_install_report(
     render_results: list[ConflictResult],
     mcp_notes: list[str],
     bootstrap_ok: bool,
+    language: str = "en",
 ) -> dict[str, Any]:
     """Generate a structured install report."""
     report = {
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "version": version,
         "profile": profile_name,
+        "language": language,
         "workspace": str(workspace),
         "bootstrap_ok": bootstrap_ok,
         "files": {

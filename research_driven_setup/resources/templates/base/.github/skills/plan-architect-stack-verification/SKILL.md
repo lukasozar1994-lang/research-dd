@@ -3,6 +3,8 @@ name: plan-architect-stack-verification
 description: 'Verify the technology stack for a planning workflow. Use for library resolution, version comparison, changelog and migration summarization, syntax extraction for the target version, and dependency manifest reading with Context7 as the first source.'
 ---
 
+<!-- user-language: en -->
+
 # Plan Architect Stack Verification
 
 Use this skill after the technical specification exists and before the file map or implementation plan is finalized.

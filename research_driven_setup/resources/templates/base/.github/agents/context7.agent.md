@@ -5,6 +5,7 @@ target: vscode
 tools: ['read', 'search', 'open-websearch/*', 'context7/*', 'filesystem/*', 'todo', 'edit', 'execute']
 ---
 
+<!-- user-language: en -->
 
 # Context7 Documentation Expert
 

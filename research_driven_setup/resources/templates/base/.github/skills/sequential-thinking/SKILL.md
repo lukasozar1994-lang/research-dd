@@ -1,52 +1,53 @@
 ---
-description: 'Użyj tego skilla do planowania wieloetapowego researchu: rozbijania tematu na kroki, definiowania zapytań do open-websearch i kontrolowania przejścia od zbierania źródeł do analizy lokalnych plików w research_data/<folder-badania>/zrodla_i_analiza.'
+description: 'Use this skill for planning multi-stage research: breaking a topic into steps, defining queries for open-websearch, and controlling the transition from source collection to analysis of local files in research_data/<research-folder>/zrodla_i_analiza.'
 name: 'sequential-thinking'
 ---
 
+<!-- user-language: en -->
 
-# Skill: Sequential Thinking (Zarządzanie procesem myślowym)
+# Skill: Sequential Thinking (Thought Process Management)
 
-## Opis
-To narzędzie (MCP Sequential Thinking) służy do ustrukturyzowania Twojego procesu badawczego. Pozwala uniknąć "halucynacji" poprzez zmuszenie Cię do rozpisania etapów analizy przed podjęciem akcji na plikach.
+## Description
+This tool (MCP Sequential Thinking) is used to structure your research process. It prevents "hallucinations" by requiring you to outline analysis stages before taking action on files.
 
-## Kiedy używać
-- Zawsze na początku złożonego researchu, zanim uruchomisz zapis planu lub zbieranie źródeł.
-- Gdy temat wymaga rozbicia na kilka zapytań do skilla `open-websearch`.
-- Gdy chcesz zaplanować przejście od `research_plan.md`, przez zapis źródeł do `research_data/<folder-badania>/zrodla_i_analiza/`, aż po analizę końcową.
-- Gdy musisz zdecydować, jak reagować na częściowe błędy pobierania lub sprzeczności między źródłami.
+## When to use
+- Always at the beginning of complex research, before launching plan saving or source collection.
+- When the topic needs to be broken down into several queries for the `open-websearch` skill.
+- When you want to plan the transition from `research_plan.md`, through saving sources to `research_data/<research-folder>/zrodla_i_analiza/`, to the final analysis.
+- When you need to decide how to handle partial fetch errors or contradictions between sources.
 
-## Jak korzystać (wywołanie narzędzi)
-Kiedy rozpoczynasz zadanie, użyj narzędzia `sequentialthinking`, dostarczając następujące parametry:
-- `thought` (string): Treść Twojej myśli/kroku badawczego.
-- `thoughtNumber` (integer): Aktualny numer kroku (np. 1).
-- `totalThoughts` (integer): Przewidywana całkowita liczba kroków w analizie.
-- `nextThoughtNeeded` (boolean): `true`, dopóki nie dotrzesz do etapu syntezy.
+## How to use (tool invocation)
+When starting a task, use the `sequentialthinking` tool with the following parameters:
+- `thought` (string): Content of your thought/research step.
+- `thoughtNumber` (integer): Current step number (e.g., 1).
+- `totalThoughts` (integer): Expected total number of analysis steps.
+- `nextThoughtNeeded` (boolean): `true` until you reach the synthesis stage.
 
-**Parametry opcjonalne:**
-- `isRevision` (boolean): Czy poprawiasz poprzednią myśl.
-- `revisesThought` (integer): Numer myśli, którą poprawiasz.
-- `branchFromThought` (integer): Numer myśli, od której tworzysz nową gałąź rozumowania.
-- `branchId` (string): Identyfikator gałęzi.
-- `needsMoreThoughts` (boolean): Czy potrzebujesz więcej kroków niż pierwotnie zakładałeś.
+**Optional parameters:**
+- `isRevision` (boolean): Whether you are correcting a previous thought.
+- `revisesThought` (integer): Number of the thought you are correcting.
+- `branchFromThought` (integer): Number of the thought from which you create a new reasoning branch.
+- `branchId` (string): Branch identifier.
+- `needsMoreThoughts` (boolean): Whether you need more steps than originally planned.
 
-## Kompatybilność z `open-websearch`
-Jeżeli workflow używa skilla `open-websearch`, plan myślowy powinien zawierać jawnie:
-- temat główny i listę 2-5 zapytań roboczych,
-- decyzję, czy użyć pojedynczego `fetchWebContent`, czy skryptu `collect-web-research.mjs`,
-- docelowy katalog główny w `research_data/<folder-badania>/` i podkatalog artefaktów `zrodla_i_analiza/`,
-- kryterium przeglądu `source-index.md` i zapisanych plików `.md` przed syntezą,
-- sposób postępowania przy brakujących lub sprzecznych źródłach.
+## Compatibility with `open-websearch`
+If the workflow uses the `open-websearch` skill, the thought plan should explicitly include:
+- the main topic and a list of 2–5 working queries,
+- a decision whether to use a single `fetchWebContent` or the `collect-web-research.mjs` script,
+- the target main directory in `research_data/<research-folder>/` and artifacts subdirectory `zrodla_i_analiza/`,
+- criteria for reviewing `source-index.md` and saved `.md` files before synthesis,
+- how to handle missing or contradictory sources.
 
-## Zalecana sekwencja myśli
-1. Zrozumienie tematu i stworzenie struktury dla `research_plan.md`.
-2. Rozbicie tematu na pytania badawcze i zapytania do wyszukiwarki.
-3. Decyzja, czy zbieranie źródeł będzie wykonywane ręcznie, czy przez `open-websearch/scripts/collect-web-research.mjs`.
-4. Określenie kryteriów wyboru źródeł i ryzyk jakościowych.
-5. Przegląd lokalnych wyników w `research_data/<folder-badania>/zrodla_i_analiza/`, w tym `source-index.md` i zapisanych plików `.md`.
-6. Synteza wniosków i przygotowanie raportu końcowego.
+## Recommended thought sequence
+1. Understanding the topic and creating structure for `research_plan.md`.
+2. Breaking the topic into research questions and search queries.
+3. Deciding whether source collection will be done manually or via `open-websearch/scripts/collect-web-research.mjs`.
+4. Defining source selection criteria and quality risks.
+5. Reviewing local results in `research_data/<research-folder>/zrodla_i_analiza/`, including `source-index.md` and saved `.md` files.
+6. Synthesizing conclusions and preparing the final report.
 
-## Najlepsze praktyki
-- Pierwsza myśl to zawsze: "Zrozumienie wymagań i stworzenie struktury dla `research_plan.md`".
-- Jeżeli używasz `open-websearch` dla wielu zapytań, jedna z wczesnych myśli musi jawnie rozpisać listę zapytań, katalog główny badania i katalog docelowy `research_data/<folder-badania>/zrodla_i_analiza/`.
-- Zanim wyciągniesz wnioski do raportu końcowego, Twoja przedostatnia myśl musi zawierać przegląd pobranych źródeł z folderu `research_data/<folder-badania>/zrodla_i_analiza/`, ze szczególnym uwzględnieniem `source-index.md` i lokalnych plików `.md`.
-- Jeżeli część źródeł nie została pobrana, użyj rewizji lub rozgałęzienia myśli, aby zdecydować, czy zawęzić temat, zmienić zapytania, czy kontynuować analizę na podstawie źródeł już zapisanych lokalnie.
+## Best practices
+- The first thought should always be: "Understanding requirements and creating structure for `research_plan.md`".
+- If using `open-websearch` for multiple queries, one of the early thoughts must explicitly list the queries, the main research directory, and the target directory `research_data/<research-folder>/zrodla_i_analiza/`.
+- Before drawing conclusions for the final report, your second-to-last thought must contain a review of fetched sources from `research_data/<research-folder>/zrodla_i_analiza/`, with special attention to `source-index.md` and local `.md` files.
+- If some sources were not fetched, use thought revision or branching to decide whether to narrow the topic, change queries, or continue analysis based on already locally saved sources.

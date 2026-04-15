@@ -1,0 +1,21 @@
+<!-- user-language: pl -->
+
+# Cel:
+Przygotowanie planu projektu i implementacji, na podstawie `research_data/ai-agent-framwork-installers-best-practices/zrodla_i_analiza/analiza.md`, oraz wytycznych użytkownika.
+# Kontekst:
+1. W obecnym workaspace stowrzyłem sobie pełny workflow dla nowatorskiej metodyki research-driven development, która zakłada rozpoczęcie projektu od przygotowania badań i analiz, do tego służą agenci `.github/agents/deep_research.agent.md` i `.github/agents/context7.agent.md`, a następnie przejście do fazy pełnego planowania projektu przy pomocy agetna `.github/agents/plan_architect.agent.md`, który na podstawie wyników researchu i wytycznych użytkownika tworzy plan projektu, który jest następnie realizowany przez agenta implementacyjnego `.github/agents/implement_worker.agent.md`. Obecnie jestem w fazie przygotowywania planu projektu i implementacji dla tematu `ai-agent-framwork-installers-best-practices`, a głównym źródłem informacji do tego jest plik `research_data/ai-agent-framwork-installers-best-practices/zrodla_i_analiza/analiza.md`, który zawiera wyniki mojej analizy najlepszych praktyk dotyczących instalatorów frameworków dla agentów AI. Moim celem jest stworzenie planu projektu, który będzie obejmował wszystkie kluczowe aspekty związane z tym tematem, takie jak wymagania, architektura, technologie, harmonogram, ryzyka i zasoby potrzebne do realizacji projektu.
+2. Agenci korzystają z serwerów MCP skonfigurowanych w `.vscode/mcp.json`, a także z narzędzi takich jak `read`, `search`, `edit`, `execute`, `todo`, `vscode/memory`, `context7/*`, `filesystem/*`, `open-websearch/*`, `sequential-thinking/*` i `github/*`.
+3. Narzędzia MCP są lokalne oprócz `github/*`, oraz `context7/*`. 
+4. Agenci korzytają z gotowych skryptów do konfigurowania, oraz do reserchu.
+5. Agenci korzystają z gotwych szablonów, oraz przygotowanych dla nich specjalnie skilli.
+# Zadanie:
+Na podstawie analizy zawartej w `research_data/ai-agent-framwork-installers-best-practices/zrodla_i_analiza/analiza.md` oraz wytycznych użytkownika, przygotuj szczegółowy plan projektu dla tematu `ai-agent-framwork-installers-best-practices`, który będzie obejmował przetowrzenie całej obecnej architektury agentów, skilli, skryptów, promptów i narzędzi MCP, do pełnego frameworka instalatorów dla metodyki research-driven development, docelowo chciałbym mieć osobne repozytoriu, z gotowym frameworkiem tak jak `spec-kit`, użytkownik pobierze paczek prze uvx z githuba, następnie w swoim workspace otworzy terminal i wpisze `reserch-driven-setup`, a wtedy framework zainstaluje się automatycznie, skonfiguruje MCP, skopiuje potrzebne pliki, i jeżeli będzie trzeba na przykład wpisać klucz api do contex7, to poprosi o to użytkownika, czy urchomić github MCP aby wystartować z gotowym środowiskiem do research-driven development. 
+# Proces realizacji:
+1. Przeanalizuj dokładnie plik `research_data/ai-agent-framework-installers-best-practices/zrodla_i_analiza/analiza.md`, zidentyfikuj kluczowe informacje, wnioski i rekomendacje dotyczące najlepszych praktyk dla instalatorów frameworków agentów AI.
+2. Dokładnie przenalizuj obency workflow agentów dla `research-driven development`, skilli, narzędzi MCP i promptów,
+3. Przygotuj plan projektu.
+# Dodatkowe wytyczne:
+- Chciałbym żeby termina w CLI był `research-driven-setup`, a po jego wpisaniu, framework zainstalował się automatycznie, skonfigurował MCP, skopiował potrzebne pliki, i jeżeli będzie trzeba na przykład wpisać klucz api do contex7, to poprosi o to użytkownika, czy urchomić github MCP aby wystartować z gotowym środowiskiem do research-driven development.
+- Chciałbym żeby terminal CLI wyglądał estetycznie, z czytelnymi komunikatami, i ładąną grafiką ascii art na start, która będzie symbolizować Badania (może lupa, książki itd)
+- Chciałbym żeby plan zakładał przygotowanie równiez komendy --help, która będzie wyświetlać pomoc dotyczącą tego frameworka, jego możliwości, oraz instrukcję jak z niego korzystać.
+- Chciałbym żeby plan zakładał przygotowanie dokumentacji, reedme.md, który będzie zawierał opis frameworka, instrukcję instalacji, przykłady użycia, oraz informacje o tym jak dostosować framework do własnych potrzeb.

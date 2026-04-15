@@ -3,6 +3,8 @@ name: execution-manifest
 description: 'Use when you need to normalize research_data/<topic>/plan_projektu into a deterministic execution manifest with task scope, target files, validation commands, runtime paths, and browser routing flags.'
 ---
 
+<!-- user-language: en -->
+
 # Execution Manifest
 
 ## Inputs

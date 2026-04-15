@@ -3,6 +3,8 @@ name: review-diff
 description: 'Use when a task implementation is complete and you need to compare the diff against acceptance criteria, validation results, and produce a ReviewPacket with accept, retry, or block.'
 ---
 
+<!-- user-language: en -->
+
 # Review Diff
 
 ## Command

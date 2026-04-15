@@ -3,6 +3,8 @@ name: gemini-api-python
 description: 'Research the current official Google GenAI SDK for Python, determine the correct Gemini API library and installation steps, and produce up-to-date examples for text generation, streaming, chat, multimodal input, structured output, files, async usage, and function calling.'
 ---
 
+<!-- user-language: en -->
+
 # Gemini API Python Research
 
 ## Purpose

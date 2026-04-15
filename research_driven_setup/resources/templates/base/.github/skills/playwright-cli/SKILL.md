@@ -4,6 +4,8 @@ description: Automates browser interactions for web testing, form filling, scree
 allowed-tools: Bash(playwright-cli:*)
 ---
 
+<!-- user-language: en -->
+
 # Browser Automation with playwright-cli
 
 ## Quick start

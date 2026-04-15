@@ -17,7 +17,7 @@ from research_driven_setup.core.conflict_policy import ConflictAction
 from research_driven_setup.core.manifest import load_manifest
 from research_driven_setup.core.mcp import compose_mcp_config, generate_mcp_onboarding_notes, write_mcp_config
 from research_driven_setup.core.profiles import get_default_profile, list_available_profiles, resolve_profile
-from research_driven_setup.core.renderer import render_workspace
+from research_driven_setup.core.renderer import render_workspace, SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE
 from research_driven_setup.core.report import generate_install_report, write_install_report
 from research_driven_setup.core.secrets import _write_env_example, prompt_for_secrets, prompt_github_mcp_setup
 from research_driven_setup.core.workspace_state import detect_workspace_state
@@ -28,6 +28,7 @@ console = Console()
 def install(
     workspace: Path = typer.Option(None, "--workspace", "-w", help="Target workspace directory."),
     profile: str = typer.Option(None, "--profile", "-p", help="Installation profile name."),
+    language: str = typer.Option(None, "--language", "-l", help="Language for agent/skill/prompt files (en or pl)."),
     force: bool = typer.Option(False, "--force", "-f", help="Force overwrite existing files."),
     non_interactive: bool = typer.Option(False, "--non-interactive", "--yes", "-y", help="Skip interactive prompts."),
 ) -> None:
@@ -39,6 +40,8 @@ def install(
         workspace = None
     if not isinstance(profile, str):
         profile = None
+    if not isinstance(language, str):
+        language = None
     if not isinstance(force, bool):
         force = False
     if not isinstance(non_interactive, bool):
@@ -109,6 +112,31 @@ def install(
     console.print(f"[green]✓[/green] Profile: [bold]{selected_profile.display_name}[/bold]")
     console.print()
 
+    # Step 2.5: Language selection
+    if language and language in SUPPORTED_LANGUAGES:
+        selected_language = language
+    elif non_interactive:
+        selected_language = DEFAULT_LANGUAGE
+    else:
+        console.print("[bold cyan]Language:[/bold cyan] Select language for agent, skill, prompt, and instruction files.")
+        console.print()
+        lang_options = {
+            "en": "English (default)",
+            "pl": "Polski (Polish)",
+        }
+        for code, label in lang_options.items():
+            marker = " [bold green](default)[/bold green]" if code == DEFAULT_LANGUAGE else ""
+            console.print(f"  • [bold]{code}[/bold] — {label}{marker}")
+        console.print()
+        lang_choice = typer.prompt(
+            "Select language (en/pl)",
+            default=DEFAULT_LANGUAGE,
+        ).strip().lower()
+        selected_language = lang_choice if lang_choice in SUPPORTED_LANGUAGES else DEFAULT_LANGUAGE
+
+    console.print(f"[green]✓[/green] Language: [bold]{selected_language}[/bold]")
+    console.print()
+
     # Step 3: Workspace state check
     console.print("[bold cyan]Step 3/6:[/bold cyan] Inspecting workspace state...")
     state = detect_workspace_state(target)
@@ -127,7 +155,7 @@ def install(
     # Step 4: Render templates
     console.print("[bold cyan]Step 4/6:[/bold cyan] Rendering workspace assets...")
     manifest = load_manifest()
-    render_results = render_workspace(manifest, target, force=force)
+    render_results = render_workspace(manifest, target, force=force, language=selected_language)
 
     written = sum(1 for r in render_results if r.action in (ConflictAction.WRITE, ConflictAction.OVERWRITE))
     skipped = [r for r in render_results if r.action == ConflictAction.SKIP]
@@ -195,6 +223,7 @@ def install(
         render_results=render_results,
         mcp_notes=mcp_notes,
         bootstrap_ok=bootstrap.all_required_met,
+        language=selected_language,
     )
     json_path, md_path = write_install_report(target, report_data)
     console.print(f"[green]✓[/green] Report written to {md_path.relative_to(target)}")
@@ -204,6 +233,7 @@ def install(
     console.print(Panel(
         f"[bold green]Installation Complete![/bold green]\n\n"
         f"Profile: {selected_profile.display_name}\n"
+        f"Language: {selected_language}\n"
         f"Version: {__version__}\n"
         f"Files written: {written}\n"
         f"Files skipped: {len(skipped)}\n\n"

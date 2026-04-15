@@ -1,3 +1,5 @@
+<!-- user-language: en -->
+
 # Instructions for GitHub Copilot Agent
 
 ## Environment

@@ -1,54 +1,56 @@
 ---
 name: Deep Research Workspace Setup
-description: 'Przygotuj cały workspace do pracy z agentem Deep Research po przeniesieniu samego folderu .github: skonfiguruj Node, serwery MCP, package.json, .vscode/mcp.json, katalog research_data oraz zweryfikuj działanie.'
-argument-hint: 'Nazwa projektu, katalog docelowy albo dodatkowe wymagania środowiska'
+description: 'Set up the entire workspace for working with the Deep Research agent after transferring only the .github folder: configure Node, MCP servers, package.json, .vscode/mcp.json, research_data directory, and verify functionality.'
+argument-hint: 'Project name, target directory, or additional environment requirements'
 
 ---
 
-Przygotuj bieżący workspace do pracy z agentem Deep Research, zakładając, że na nowy komputer lub do nowego projektu został przeniesiony tylko folder `.github` z agentami, promptami, instrukcjami i skillami.
+<!-- user-language: en -->
 
-Pracuj zgodnie z założeniami z tych plików:
+Set up the current workspace for working with the Deep Research agent, assuming that only the `.github` folder with agents, prompts, instructions, and skills has been transferred to a new computer or project.
+
+Work according to the assumptions from these files:
 - [Deep Research agent](../agents/deep_reserch.agent.md)
 - [Sequential Thinking skill](../skills/sequential-thinking/SKILL.md)
 - [Filesystem skill](../skills/filesystem/SKILL.md)
 - [Open-WebSearch skill](../skills/open-websearch/SKILL.md)
 
-## Cel
-Odtwórz kompletne środowisko robocze potrzebne do działania workflow Deep Research w nowym workspace.
+## Goal
+Restore a complete working environment needed for the Deep Research workflow in a new workspace.
 
-## Wymagany zakres prac
-1. Sprawdź, czy w systemie są dostępne `node`, `npm` i `npx`. Jeżeli nie, zatrzymaj się i podaj konkretny brak.
-2. Jeśli brakuje `package.json`, utwórz go. Jeśli istnieje, zaktualizuj go minimalnie.
-3. Zainstaluj wymagane zależności developerskie:
+## Required scope of work
+1. Check if `node`, `npm`, and `npx` are available in the system. If not, stop and report the specific missing tool.
+2. If `package.json` is missing, create it. If it exists, update it minimally.
+3. Install required dev dependencies:
    - `@modelcontextprotocol/sdk`
    - `@modelcontextprotocol/server-sequential-thinking`
    - `@modelcontextprotocol/server-filesystem`
    - `open-websearch`
-4. Utwórz lub zaktualizuj plik `.vscode/mcp.json`, aby zawierał konfigurację serwerów:
+4. Create or update `.vscode/mcp.json` to contain server configuration for:
    - `sequential-thinking`
    - `filesystem`
    - `open-websearch`
-5. Upewnij się, że istnieją katalogi:
+5. Ensure these directories exist:
    - `research_data/`
    - `.vscode/`
-6. Pamiętaj, że workflow Deep Research ma zapisywać artefakty do `research_data/<folder-badania>/zrodla_i_analiza/`, tak aby `plan_projektu/` mógł powstawać jako folder równorzędny.
-7. Upewnij się, że `package.json` zawiera skrypt potrzebny do pracy z workflow wieloźródłowym:
+6. Remember that the Deep Research workflow saves artifacts to `research_data/<research-folder>/zrodla_i_analiza/`, so `plan_projektu/` can be created as a sibling folder.
+7. Ensure `package.json` contains the script needed for multi-source workflow:
    - `skill:open-websearch:collect`
-8. Zweryfikuj konfigurację:
-   - potwierdź, że zależności Node i konfiguracja MCP są poprawne,
-   - jeśli to możliwe, uruchom `skill:open-websearch:collect` na prostym przykładzie lub sprawdź, że skrypt jest gotowy do uruchomienia,
-   - potwierdź, że workspace jest gotowy do pracy z agentem Deep Research.
+8. Verify the configuration:
+   - confirm that Node dependencies and MCP configuration are correct,
+   - if possible, run `skill:open-websearch:collect` on a simple example or verify the script is ready to run,
+   - confirm the workspace is ready for the Deep Research agent.
 
-## Ograniczenia i zasady
-- Zachowuj istniejące pliki użytkownika, jeśli nie wymagają zmiany.
-- Wprowadzaj najmniejszy możliwy zestaw zmian potrzebnych do uruchomienia workflow.
-- Nie odtwarzaj opcjonalnych plików diagnostycznych lub dokumentacyjnych, jeśli nie są potrzebne do samego działania workflow.
-- Jeśli jakiś element nie może zostać odtworzony automatycznie, opisz dokładnie brak i zaproponuj najbliższą działającą alternatywę.
-- Nie kończ na samej analizie. Wykonaj rzeczywistą konfigurację plików i środowiska.
+## Constraints and rules
+- Preserve existing user files if they do not require changes.
+- Make the smallest possible set of changes needed to launch the workflow.
+- Do not recreate optional diagnostic or documentation files unless needed for the workflow itself.
+- If an element cannot be restored automatically, describe the gap precisely and propose the closest working alternative.
+- Do not stop at analysis alone. Perform the actual file and environment configuration.
 
-## Oczekiwany rezultat
-Na końcu podaj zwięzłe podsumowanie w czterech częściach:
-1. Jakie pliki i katalogi zostały utworzone lub zmienione.
-2. Jakie pakiety i komendy zostały użyte do konfiguracji.
-3. Jakie testy lub weryfikacje zostały uruchomione i z jakim wynikiem.
-4. Czy workspace jest gotowy do pracy z agentem Deep Research oraz jakie są ewentualne braki.
+## Expected result
+At the end, provide a concise summary in four parts:
+1. What files and directories were created or changed.
+2. What packages and commands were used for configuration.
+3. What tests or verifications were run and their results.
+4. Whether the workspace is ready for the Deep Research agent and any remaining gaps.

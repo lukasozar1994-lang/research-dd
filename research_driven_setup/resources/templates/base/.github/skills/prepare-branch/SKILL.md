@@ -3,6 +3,8 @@ name: prepare-branch
 description: 'Use when implementation must create or switch to a branch named <topic-slug>-NNN before any file edit and persist branch context for resume.'
 ---
 
+<!-- user-language: en -->
+
 # Prepare Branch
 
 ## Command

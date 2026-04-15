@@ -1,56 +1,58 @@
 ---
-description: 'Użyj tego skilla do wieloźródłowego researchu w sieci: wyszukiwania jednego lub wielu tematów, pobierania wielu stron przez fetchWebContent i zapisywania oczyszczonych plików Markdown do research_data/<folder-badania>/zrodla_i_analiza przed analizą.'
+description: 'Use this skill for multi-source web research: searching one or more topics, fetching multiple pages via fetchWebContent, and saving cleaned Markdown files to research_data/<research-folder>/zrodla_i_analiza before analysis.'
 name: 'open-websearch'
-argument-hint: 'Temat badawczy, lista zapytań lub polecenie zapisania wielu źródeł do research_data/<folder-badania>/zrodla_i_analiza'
+argument-hint: 'Research topic, list of queries, or command to save multiple sources to research_data/<research-folder>/zrodla_i_analiza'
 ---
 
-# Skill: Open-WebSearch MCP (Wyszukiwanie i Pobieranie Danych)
+<!-- user-language: en -->
 
-## Opis
-To narzędzie zastępuje komercyjne silniki, wykorzystując wielosilnikowe serwery proxy (np. Bing, DuckDuckGo) w celu dostarczania wyników bez autoryzacji i API. Serwer integruje zarówno przeglądanie wyników wyszukiwania w formacie JSON, jak i ekstrakcję (scrapowanie) czytelnych treści z docelowych artykułów.
+# Skill: Open-WebSearch MCP (Web Search and Data Retrieval)
 
-## Kiedy używać
-- Gdy użytkownik podaje temat, a nie pojedynczy URL, i oczekuje zebrania wielu źródeł.
-- Gdy trzeba wykonać kilka zapytań wyszukiwawczych dla jednego raportu.
-- Gdy wynik `fetchWebContent` ma zostać zapisany lokalnie jako oczyszczone pliki `.md` w `research_data/<folder-badania>/zrodla_i_analiza/`.
-- Gdy agent ma najpierw zbudować lokalną bazę źródeł, a dopiero potem przejść do analizy.
+## Description
+This tool replaces commercial search engines by using multi-engine proxy servers (e.g., Bing, DuckDuckGo) to deliver results without authorization or API keys. The server integrates both JSON-format search result browsing and readable content extraction (scraping) from target articles.
 
-## Zasoby skilla
-- [Skrypt kolekcjonujący wiele źródeł](./scripts/collect-web-research.mjs)
-- [Workflow i przykłady użycia](./references/multi-source-workflow.md)
+## When to use
+- When the user provides a topic (not a single URL) and expects multiple sources to be collected.
+- When several search queries are needed for a single report.
+- When `fetchWebContent` results should be saved locally as cleaned `.md` files in `research_data/<research-folder>/zrodla_i_analiza/`.
+- When the agent should first build a local source base and only then proceed to analysis.
 
-## Jak korzystać z funkcji
-1. **Wyszukiwanie (Narzędzie `search`):**
-   - Parametr `query`: Precyzyjne zapytanie.
-   - Parametr `limit`: Liczba wyników (zalecane: do 5).
-   - Parametr `engines`: Opcjonalna lista silników (np. `["duckduckgo", "bing"]`).
+## Skill resources
+- [Multi-source collection script](./scripts/collect-web-research.mjs)
+- [Workflow and usage examples](./references/multi-source-workflow.md)
 
-2. **Ekstrakcja treści (Narzędzia `fetch*`):**
-   Po otrzymaniu wyników wyszukiwania, użyj dedykowanego narzędzia do pobrania treści:
-   - `fetchLinuxDoArticle`: Dla artykułów z Linux.do.
-   - `fetchCsdnArticle`: Dla artykułów z CSDN.
-   - `fetchGithubReadme`: Dla plików README z GitHub.
-   - `fetchJuejinArticle`: Dla artykułów z Juejin.
-   - `fetchWebContent`: Dla dowolnych stron (wspiera Markdown).
+## How to use the functions
+1. **Search (Tool `search`):**
+   - `query` parameter: Precise search query.
+   - `limit` parameter: Number of results (recommended: up to 5).
+   - `engines` parameter: Optional list of engines (e.g., `["duckduckgo", "bing"]`).
 
-## Dostępne narzędzia (Tools)
-| Narzędzie | Opis |
+2. **Content extraction (Tools `fetch*`):**
+   After receiving search results, use the dedicated tools to fetch content:
+   - `fetchLinuxDoArticle`: For Linux.do articles.
+   - `fetchCsdnArticle`: For CSDN articles.
+   - `fetchGithubReadme`: For GitHub README files.
+   - `fetchJuejinArticle`: For Juejin articles.
+   - `fetchWebContent`: For any page (supports Markdown).
+
+## Available Tools
+| Tool | Description |
 | :--- | :--- |
-| `search` | Wyszukiwanie w sieci. |
-| `fetchLinuxDoArticle` | Pobiera artykuł z Linux.do. |
-| `fetchCsdnArticle` | Pobiera artykuł z CSDN. |
-| `fetchGithubReadme` | Pobiera README z GitHub. |
-| `fetchJuejinArticle` | Pobiera artykuł z Juejin. |
-| `fetchWebContent` | Pobiera treść dowolnej strony. |
+| `search` | Web search. |
+| `fetchLinuxDoArticle` | Fetches article from Linux.do. |
+| `fetchCsdnArticle` | Fetches article from CSDN. |
+| `fetchGithubReadme` | Fetches README from GitHub. |
+| `fetchJuejinArticle` | Fetches article from Juejin. |
+| `fetchWebContent` | Fetches content from any page. |
 
-## Procedura dla wielu zapytań
-1. Zdefiniuj temat główny i 2-5 zapytań pomocniczych.
-2. Uruchom [skrypt kolekcjonujący wiele źródeł](./scripts/collect-web-research.mjs), przekazując wiele flag `--query` lub plik z listą zapytań.
-3. Skrypt powinien wykonać `search`, odfiltrować duplikaty URL, pobrać każdą stronę przez `fetchWebContent` i zapisać oczyszczone pliki `.md` do `research_data/<folder-badania>/zrodla_i_analiza/`.
-4. Po zakończeniu przeczytaj plik indeksu źródeł `source-index.md` oraz właściwe pliki Markdown przed przystąpieniem do syntezy.
-5. Jeśli skrypt zgłosi częściowe błędy pobierania, kontynuuj analizę na podstawie zapisanych źródeł i odnotuj braki.
+## Procedure for multiple queries
+1. Define the main topic and 2–5 supporting queries.
+2. Run the [multi-source collection script](./scripts/collect-web-research.mjs), passing multiple `--query` flags or a queries file.
+3. The script should execute `search`, filter duplicate URLs, fetch each page via `fetchWebContent`, and save cleaned `.md` files to `research_data/<research-folder>/zrodla_i_analiza/`.
+4. After completion, read the source index file `source-index.md` and the actual Markdown files before proceeding to synthesis.
+5. If the script reports partial fetch errors, continue analysis based on saved sources and note the gaps.
 
-## Przykładowe uruchomienia
+## Example invocations
 ```bash
 node .github/skills/open-websearch/scripts/collect-web-research.mjs \
    --query "MicroPython ESP32" \
@@ -67,8 +69,8 @@ node .github/skills/open-websearch/scripts/collect-web-research.mjs \
    --output-dir research_data/session-01/zrodla_i_analiza
 ```
 
-## Najlepsze praktyki
-- **Weryfikacja jakości wyników:** Opisy (snippets) z Open-WebSearch potrafią być krótkie. Nie odrzucaj z góry wyników o krótkim opisie, jeśli źródło (domena) jest powszechnie uznane za technicznie rzetelne (np. docs.python.org, github.com).
-- **Zarządzanie kontekstem:** Zawsze zapisuj wynik ekstrakcji bezpośrednio do pliku w systemie lokalnym (`Filesystem MCP`) przed przystąpieniem do analizy kolejnego linku. Ograniczy to obciążenie Twojej wewnętrznej pamięci kontekstowej.
-- **Odporność na błędy:** Open-WebSearch scrapuje dane na żywo. Jeżeli strona zablokuje bota (np. błąd 403 lub CAPTCHA przy ekstrakcji artykułu), przejdź płynnie do następnego wyniku z listy badawczej i odnotuj ten fakt w `Sequential Thinking`.
-- **Dobór trybu pracy:** Dla pojedynczego, znanego URL można użyć `fetchWebContent` bezpośrednio. Dla researchu wieloźródłowego preferuj skrypt z tego skilla, bo zapisuje wiele stron i tworzy indeks źródeł.
+## Best practices
+- **Result quality verification:** Snippets from Open-WebSearch can be short. Do not dismiss results with short descriptions if the source domain is widely recognized as technically reliable (e.g., docs.python.org, github.com).
+- **Context management:** Always save extraction results directly to a file on the local filesystem (`Filesystem MCP`) before proceeding to analyze the next link. This limits the burden on your internal context memory.
+- **Error resilience:** Open-WebSearch scrapes data live. If a page blocks the bot (e.g., 403 error or CAPTCHA during article extraction), smoothly move to the next result from the research list and note the incident in `Sequential Thinking`.
+- **Mode selection:** For a single known URL, you can use `fetchWebContent` directly. For multi-source research, prefer this skill's script as it saves multiple pages and creates a source index.

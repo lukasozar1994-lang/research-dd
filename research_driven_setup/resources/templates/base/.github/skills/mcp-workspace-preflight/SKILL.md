@@ -3,6 +3,8 @@ name: mcp-workspace-preflight
 description: 'Use when a workflow depends on workspace MCP servers and you need to verify configuration, install missing local prerequisites, and run smoke checks before implementation.'
 ---
 
+<!-- user-language: en -->
+
 # MCP Workspace Preflight
 
 Use this skill at the start of every `implement_worker` run.

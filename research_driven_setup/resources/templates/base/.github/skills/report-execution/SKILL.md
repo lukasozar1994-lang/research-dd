@@ -3,6 +3,8 @@ name: report-execution
 description: 'Use when you need to persist checkpoints and generate execution-report.json plus execution-report.md for human handoff after validation and review.'
 ---
 
+<!-- user-language: en -->
+
 # Report Execution
 
 ## Command

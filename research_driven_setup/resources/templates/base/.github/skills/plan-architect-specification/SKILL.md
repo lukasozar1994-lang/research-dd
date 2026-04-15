@@ -3,6 +3,8 @@ name: plan-architect-specification
 description: 'Create the planning specification layer for a project blueprint. Use for constitution drafting, architecture description, non-functional requirements authoring, API and data flow modeling, and Mermaid diagrams after intake and gap analysis are complete.'
 ---
 
+<!-- user-language: en -->
+
 # Plan Architect Specification
 
 Use this skill after the analysis phase has produced stable planning inputs and before stack verification begins.

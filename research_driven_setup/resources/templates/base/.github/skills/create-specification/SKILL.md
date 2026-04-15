@@ -3,6 +3,8 @@ name: create-specification
 description: 'Create a new specification file for the solution, optimized for Generative AI consumption.'
 ---
 
+<!-- user-language: en -->
+
 # Create Specification
 
 Your goal is to create a new specification file for `${input:SpecPurpose}`.

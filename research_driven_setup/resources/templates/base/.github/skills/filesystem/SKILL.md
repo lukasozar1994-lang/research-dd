@@ -1,62 +1,65 @@
 ---
-description: 'Użyj tego skilla do zarządzania lokalnymi plikami workflow badawczego: zapisu research_plan.md, tworzenia katalogów research_data, odkładania źródeł .md do zrodla_i_analiza, odczytu source-index i przygotowania końcowego raportu analiza.md.'
+description: 'Use this skill to manage local research workflow files: saving research_plan.md, creating research_data directories, storing sources as .md in zrodla_i_analiza, reading source-index, and preparing the final analiza.md report.'
 name: 'filesystem'
 ---
-# Skill: Filesystem (Zarządzanie Plikami Lokalnymi)
 
-## Opis
-Dzięki temu serwerowi MCP masz bezpieczny dostęp do odczytu i zapisu plików w obrębie zadeklarowanej przestrzeni roboczej użytkownika (Workspace).
+<!-- user-language: en -->
 
-## Kiedy używać
-- Gdy `sequential-thinking` zaplanował zapis `research_plan.md`.
-- Gdy `open-websearch` pobrał źródła i trzeba je zapisać lokalnie do `research_data/<folder-badania>/zrodla_i_analiza/`.
-- Gdy trzeba utworzyć lub sprawdzić `source-index.md`, `source-index.json` oraz właściwe pliki źródłowe `.md`.
-- Gdy analiza końcowa ma być oparta na lokalnych plikach, a nie wyłącznie na odpowiedziach narzędzi MCP.
+# Skill: Filesystem (Local File Management)
 
-## Jak korzystać
-Zawsze używaj odpowiednich wywołań funkcji zapewnionych przez serwer filesystem:
-- **Tworzenie/Nadpisywanie:** Użyj narzędzia `write_file`, podając bezwzględną lub względną ścieżkę do pliku oraz zawartość (`content`).
-- **Odczyt:** Użyj narzędzia `read_text_file` lub `read_multiple_files` do pobierania danych.
-- **Zarządzanie:** Użyj `create_directory`, `move_file` lub `edit_file` do modyfikacji struktury i zawartości.
-- **Wyszukiwanie i Informacje:** Użyj `search_files`, `directory_tree` lub `get_file_info` do eksploracji workspace.
+## Description
+This MCP server provides safe read and write access to files within the user's declared workspace.
 
-## Dostępne narzędzia (Tools)
-| Narzędzie | Opis |
+## When to use
+- When `sequential-thinking` has planned a `research_plan.md` save.
+- When `open-websearch` has fetched sources and they need to be saved locally to `research_data/<research-folder>/zrodla_i_analiza/`.
+- When you need to create or check `source-index.md`, `source-index.json`, and the actual source `.md` files.
+- When the final analysis should be based on local files, not solely on MCP tool responses.
+
+## How to use
+Always use the appropriate function calls provided by the filesystem server:
+- **Create/Overwrite:** Use the `write_file` tool, providing the absolute or relative file path and content.
+- **Read:** Use `read_text_file` or `read_multiple_files` to retrieve data.
+- **Manage:** Use `create_directory`, `move_file`, or `edit_file` to modify structure and content.
+- **Search & Info:** Use `search_files`, `directory_tree`, or `get_file_info` to explore the workspace.
+
+## Available Tools
+| Tool | Description |
 | :--- | :--- |
-| `read_text_file` | Odczytuje pełną zawartość pliku tekstowego. |
-| `read_media_file` | Odczytuje pliki graficzne lub audio (base64). |
-| `read_multiple_files` | Odczytuje wiele plików jednocześnie. |
-| `write_file` | Tworzy nowy plik lub nadpisuje istniejący. |
-| `edit_file` | Wykonuje precyzyjne edycje w pliku. |
-| `create_directory` | Tworzy nowy katalog. |
-| `list_directory` | Wyświetla zawartość katalogu. |
-| `list_directory_with_sizes` | Wyświetla zawartość katalogu z rozmiarami plików. |
-| `move_file` | Przenosi lub zmienia nazwę plików i katalogów. |
-| `search_files` | Rekurencyjnie wyszukuje pliki/katalogi według wzorca. |
-| `directory_tree` | Zwraca strukturę drzewa katalogów w formacie JSON. |
-| `get_file_info` | Pobiera szczegółowe metadane pliku/katalogu. |
-| `list_allowed_directories` | Wyświetla listę katalogów, do których serwer ma dostęp. |
+| `read_text_file` | Reads the full content of a text file. |
+| `read_media_file` | Reads image or audio files (base64). |
+| `read_multiple_files` | Reads multiple files simultaneously. |
+| `write_file` | Creates a new file or overwrites an existing one. |
+| `edit_file` | Makes precise edits to a file. |
+| `create_directory` | Creates a new directory. |
+| `list_directory` | Lists directory contents. |
+| `list_directory_with_sizes` | Lists directory contents with file sizes. |
+| `move_file` | Moves or renames files and directories. |
+| `search_files` | Recursively searches files/directories by pattern. |
+| `directory_tree` | Returns directory tree structure in JSON format. |
+| `get_file_info` | Retrieves detailed file/directory metadata. |
+| `list_allowed_directories` | Lists directories the server has access to. |
 
-## Kompatybilność z workflow badawczym
-Jeżeli workflow łączy `sequential-thinking` i `open-websearch`, skill `filesystem` odpowiada za trwały zapis etapów pracy:
-- `research_data/<folder-badania>/zrodla_i_analiza/research_plan.md` po etapie planowania,
-- katalog `research_data/<folder-badania>/zrodla_i_analiza/` dla artefaktów badawczych,
-- pliki źródłowe `.md` pobrane przez `fetchWebContent`,
-- `source-index.md` i `source-index.json` jako punkt wejścia do przeglądu źródeł,
-- `analiza.md` jako końcowy raport oparty na lokalnych plikach.
+## Compatibility with research workflow
+If the workflow combines `sequential-thinking` and `open-websearch`, the `filesystem` skill handles persistent storage of work stages:
+- `research_data/<research-folder>/zrodla_i_analiza/research_plan.md` after planning stage,
+- `research_data/<research-folder>/zrodla_i_analiza/` directory for research artifacts,
+- source `.md` files fetched by `fetchWebContent`,
+- `source-index.md` and `source-index.json` as entry points for source review,
+- `analiza.md` as the final report based on local files.
 
-## Zalecany sposób użycia w tym workflow
-1. Utwórz `research_plan.md` po zakończeniu pierwszych kroków `sequential-thinking`.
-2. Przed zapisem źródeł upewnij się, że istnieje katalog `research_data/<folder-badania>/zrodla_i_analiza/`.
-3. Zapisuj każde źródło jako osobny plik `.md`, zamiast nadpisywać jeden plik roboczy.
-4. Po zebraniu źródeł odczytaj `source-index.md`, a następnie użyj `read_multiple_files` lub `read_text_file` do przeglądu właściwych plików `.md`.
-5. Zapisz `analiza.md` dopiero wtedy, gdy synteza opiera się na lokalnie zapisanych plikach.
+## Recommended usage in this workflow
+1. Create `research_plan.md` after completing the first `sequential-thinking` steps.
+2. Before saving sources, ensure the `research_data/<research-folder>/zrodla_i_analiza/` directory exists.
+3. Save each source as a separate `.md` file instead of overwriting a single working file.
+4. After collecting sources, read `source-index.md` and then use `read_multiple_files` or `read_text_file` to review the actual `.md` files.
+5. Save `analiza.md` only when the synthesis is based on locally saved files.
 
-## Najlepsze praktyki i ograniczenia
-- Jeśli zapisujesz długi raport, twórz go w pamięci etapami i zapisz w całości na dysk na samym końcu procesu.
-- Jeśli workflow tworzy wiele źródeł, preferuj strukturę `research_data/micropython-esp32/zrodla_i_analiza/`, aby nie mieszać plików z różnych badań i pozostawić miejsce na sąsiedni folder `plan_projektu/`.
-- Przed analizą sprawdź przez `list_directory` lub `read_text_file`, czy `source-index.md` i pliki `.md` faktycznie istnieją na dysku.
-- Używaj `read_multiple_files`, gdy chcesz porównać kilka lokalnych źródeł naraz, zamiast analizować je pojedynczo bez kontekstu.
-- Kody diagramów Mermaid zapisuj zawsze wewnątrz standardowych bloków kodu markdown (```mermaid ... ```), aby renderowały się poprawnie w VS Code.
-- Narzędzia takie jak `write_file` oraz `edit_file` są destrukcyjne – należy używać ich z rozwagą.
-- Wszystkie operacje są ograniczone do katalogów zdefiniowanych w konfiguracji MCP.
+## Best practices and limitations
+- If writing a long report, build it in memory in stages and save to disk at the very end of the process.
+- If the workflow creates many sources, prefer the structure `research_data/<topic>/zrodla_i_analiza/` to keep files from different studies separate and leave room for the sibling `plan_projektu/` folder.
+- Before analysis, check via `list_directory` or `read_text_file` that `source-index.md` and `.md` files actually exist on disk.
+- Use `read_multiple_files` when comparing several local sources at once, rather than analyzing them individually without context.
+- Always write Mermaid diagram code inside standard markdown code blocks (```mermaid ... ```) so they render correctly in VS Code.
+- Tools such as `write_file` and `edit_file` are destructive — use them carefully.
+- All operations are restricted to directories defined in the MCP configuration.

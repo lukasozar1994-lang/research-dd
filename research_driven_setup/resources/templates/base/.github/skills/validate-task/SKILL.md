@@ -3,6 +3,8 @@ name: validate-task
 description: 'Use when you need to execute task-specific validation commands, decide whether browser automation is required, and persist a ValidationPacket.'
 ---
 
+<!-- user-language: en -->
+
 # Validate Task
 
 ## Responsibilities

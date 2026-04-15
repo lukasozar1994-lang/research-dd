@@ -1,31 +1,33 @@
 ---
 name: MCP Setup Guide
-description: Instrukcja instalacji i konfiguracji serwerów MCP (sequential-thinking, filesystem, open-websearch) w workspace.
+description: Installation and configuration guide for MCP servers (sequential-thinking, filesystem, open-websearch) in the workspace.
 ---
+
+<!-- user-language: en -->
 
 # MCP Setup Guide
 
-Ten prompt służy do szybkiego skonfigurowania środowiska MCP w nowym workspace.
+This prompt is used for quickly configuring the MCP environment in a new workspace.
 
-## Wymagania
-- Zainstalowany Node.js oraz npm.
+## Requirements
+- Node.js and npm installed.
 
-## Kroki instalacji
+## Installation steps
 
-1. **Inicjalizacja workspace:**
-   Jeśli workspace nie posiada `package.json`, zainicjuj go:
+1. **Initialize workspace:**
+   If the workspace does not have a `package.json`, initialize it:
    ```bash
    npm init -y
    ```
 
-2. **Instalacja zależności:**
-   Zainstaluj wymagane serwery MCP oraz SDK:
+2. **Install dependencies:**
+   Install the required MCP servers and SDK:
    ```bash
    npm install --save-dev @modelcontextprotocol/server-sequential-thinking @modelcontextprotocol/server-filesystem open-websearch @modelcontextprotocol/sdk
    ```
 
-3. **Konfiguracja MCP w VS Code:**
-   Utwórz plik `.vscode/mcp.json` w głównym katalogu projektu z następującą zawartością:
+3. **Configure MCP in VS Code:**
+   Create a `.vscode/mcp.json` file in the project root with the following content:
 
    ```json
    {
@@ -50,9 +52,9 @@ Ten prompt służy do szybkiego skonfigurowania środowiska MCP w nowym workspac
    }
    ```
 
-4. **Weryfikacja:**
-   Możesz zweryfikować działanie serwerów, tworząc skrypt testowy (np. `scripts/mcp-smoke-test.mjs`) i uruchamiając go przez `node scripts/mcp-smoke-test.mjs`.
+4. **Verification:**
+   You can verify server operation by creating a test script (e.g., `scripts/mcp-smoke-test.mjs`) and running it via `node scripts/mcp-smoke-test.mjs`.
 
-## Uwagi
-- Serwer `sequential-thinking` udostępnia narzędzie o nazwie `sequentialthinking`.
-- Upewnij się, że folder `node_modules` nie jest usuwany, aby serwery MCP były dostępne dla VS Code.
+## Notes
+- The `sequential-thinking` server exposes a tool named `sequentialthinking`.
+- Make sure the `node_modules` folder is not deleted so MCP servers remain available to VS Code.

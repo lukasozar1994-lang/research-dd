@@ -1,67 +1,69 @@
-# Playwright E2E Test — [Nazwa funkcjonalności]
+<!-- user-language: en -->
 
-## Cel
-<!-- Opisz główny cel testowania, np. "Weryfikacja procesu logowania użytkownika" -->
+# Playwright E2E Test — [Feature Name]
 
-## Kontekst
-<!-- Opisz kontekst aplikacji niezbędny do przeprowadzenia testów -->
+## Goal
+<!-- Describe the main testing goal, e.g., "Verify user login process" -->
 
-### Aplikacja
+## Context
+<!-- Describe the application context needed for testing -->
+
+### Application
 - **URL**: http://localhost:3000
-- **Stack**: <!-- np. Next.js, React, Express -->
-- **Stan bazy danych**: <!-- np. Użytkownik testowy: test@example.com / hasło123 -->
+- **Stack**: <!-- e.g., Next.js, React, Express -->
+- **Database state**: <!-- e.g., Test user: test@example.com / password123 -->
 
-### Pliki do analizy
-<!-- Wskaż kluczowe pliki kodu, które agent powinien przeanalizować -->
-- <!-- np. src/pages/login.tsx -->
-- <!-- np. src/api/auth.ts -->
-- <!-- np. src/components/LoginForm.tsx -->
+### Files to analyze
+<!-- Point to key code files the agent should analyze -->
+- <!-- e.g., src/pages/login.tsx -->
+- <!-- e.g., src/api/auth.ts -->
+- <!-- e.g., src/components/LoginForm.tsx -->
 
-### Dodatkowe instrukcje
-<!-- Opcjonalne instrukcje dla agenta, np. szczególne wymagania lub ograniczenia -->
-- Uruchom serwer deweloperski przed testami: `npm run dev`
-- Testy prowadź w trybie `--headed` dla lepszej widoczności
-
----
-
-## Zadania
-
-### Zadanie 1: [Nazwa zadania]
-
-**Kontekst:** <!-- Krótki opis kontekstu zadania -->
-
-**Cel:** <!-- Co dokładnie chcesz przetestować -->
-
-**Dodatkowe instrukcje:**
-- <!-- np. Sprawdź walidację formularza dla pustych pól -->
-- <!-- np. Zweryfikuj komunikaty błędów -->
+### Additional instructions
+<!-- Optional agent instructions, e.g., specific requirements or constraints -->
+- Start the development server before tests: `npm run dev`
+- Run tests in `--headed` mode for better visibility
 
 ---
 
-### Zadanie 2: [Nazwa zadania]
+## Tasks
 
-**Kontekst:** <!-- Krótki opis kontekstu zadania -->
+### Task 1: [Task name]
 
-**Cel:** <!-- Co dokładnie chcesz przetestować -->
+**Context:** <!-- Brief task context description -->
 
-**Dodatkowe instrukcje:**
-- <!-- Dodatkowe wskazówki -->
+**Goal:** <!-- What exactly you want to test -->
+
+**Additional instructions:**
+- <!-- e.g., Check form validation for empty fields -->
+- <!-- e.g., Verify error messages -->
 
 ---
 
-## Jak używać tego prompta
+### Task 2: [Task name]
 
-### Krok 1 — Wygeneruj scenariusze testowe
-Otwórz Copilot Chat i użyj agenta `test-scenario-architect`:
+**Context:** <!-- Brief task context description -->
+
+**Goal:** <!-- What exactly you want to test -->
+
+**Additional instructions:**
+- <!-- Additional hints -->
+
+---
+
+## How to use this prompt
+
+### Step 1 — Generate test scenarios
+Open Copilot Chat and use the `test-scenario-architect` agent:
 ```
 @test-scenario-architect Follow #prompt:playwright-e2e-test.prompt.md
 ```
 
-### Krok 2 — Uruchom testy z agentem Playwright
-Po otrzymaniu scenariuszy, użyj agenta `playwright-debug`:
+### Step 2 — Run tests with the Playwright agent
+After receiving scenarios, use the `playwright-debug` agent:
 ```
 @playwright-debug Follow #prompt:playwright-e2e-test.prompt.md
 ```
 
-> **Uwaga**: Dla bezpieczeństwa kodu, pracuj w osobnym branchu lub piaskownicy,
-> szczególnie w trybie -yolo, gdzie agent może modyfikować pliki w pętli self-healing.
+> **Note**: For code safety, work in a separate branch or sandbox,
+> especially in -yolo mode where the agent can modify files in a self-healing loop.

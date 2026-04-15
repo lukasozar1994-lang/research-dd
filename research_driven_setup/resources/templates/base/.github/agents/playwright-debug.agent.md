@@ -4,6 +4,8 @@ description: Agent that uses playwright-cli to automate browser interactions for
 tools: ['edit', 'execute', 'read', 'search', 'todo', 'vscode', 'web']
 ---
 
+<!-- user-language: en -->
+
 # Main Principles
 
 - Use `playwright-cli` in terminal for all browser interactions and debugging tasks.

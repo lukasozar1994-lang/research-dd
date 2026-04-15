@@ -3,6 +3,8 @@ name: commit-after-gate
 description: 'Use when a ReviewPacket decision is accept and you need to create the automatic commit and commit.json using the frozen TASK-XXX message template.'
 ---
 
+<!-- user-language: en -->
+
 # Commit After Gate
 
 ## Preconditions

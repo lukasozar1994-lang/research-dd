@@ -3,6 +3,8 @@ name: plan-architect-analysis
 description: 'Analyze an existing research folder and create planning intake artifacts. Use for intake summarization, requirement extraction, assumption-vs-fact separation, risk spotting, and gap analysis before writing the technical specification.'
 ---
 
+<!-- user-language: en -->
+
 # Plan Architect Analysis
 
 Use this skill at the start of a planning workflow, after the user points to a research folder and before any technical specification is written.

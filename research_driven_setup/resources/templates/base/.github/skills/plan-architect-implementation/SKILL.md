@@ -3,6 +3,8 @@ name: plan-architect-implementation
 description: 'Create implementation-ready planning artifacts from a validated specification and stack. Use for file tree planning, module responsibility mapping, dependency ordering, task decomposition, and acceptance criteria writing.'
 ---
 
+<!-- user-language: en -->
+
 # Plan Architect Implementation
 
 Use this skill after stack verification is complete and the selected technologies are stable enough to drive concrete planning outputs.
