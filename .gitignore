@@ -1,0 +1,15 @@
+# Foldery
+/.venv
+/.pytest_cache
+
+# Python cache and compiled artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.pyre/
+.tox/
+.nox/
+.pytype/
