@@ -19,14 +19,14 @@ A framework installer for research-driven development in VS Code with GitHub Cop
 ### Quick Start (via uvx)
 
 ```bash
-uvx --from git+https://github.com/lukasozar1994-lang/szablon_agent.git@v0.1.0 research-driven-setup
+uvx --from git+https://github.com/lukasozar1994-lang/research-dd.git@v0.1.1 research-driven-setup
 ```
 
 ### From Local Checkout
 
 ```bash
-git clone https://github.com/lukasozar1994-lang/szablon_agent.git
-cd szablon_agent
+git clone https://github.com/lukasozar1994-lang/research-dd.git
+cd research-dd
 uv tool install -e .
 research-driven-setup
 ```
@@ -34,8 +34,8 @@ research-driven-setup
 ### Development Install
 
 ```bash
-git clone https://github.com/lukasozar1994-lang/szablon_agent.git
-cd szablon_agent
+git clone https://github.com/lukasozar1994-lang/research-dd.git
+cd research-dd
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -e .

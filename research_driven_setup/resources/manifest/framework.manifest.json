@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.1.1",
   "product_name": "research-driven-setup",
   "default_profile": "ubuntu-research",
   "profiles": ["ubuntu-research", "ubuntu-research-playwright"],
@@ -127,7 +127,7 @@
   ],
   "metadata": {
     "product_name": "Research-Driven Setup",
-    "repository": "https://github.com/lukasozar1994-lang/szablon_agent",
+    "repository": "https://github.com/lukasozar1994-lang/research-dd",
     "license": "MIT"
   }
 }

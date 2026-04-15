@@ -8,7 +8,7 @@ from research_driven_setup.core.manifest import FrameworkManifest, load_manifest
 def test_load_manifest_returns_framework_manifest():
     manifest = load_manifest()
     assert isinstance(manifest, FrameworkManifest)
-    assert manifest.version == "0.1.0"
+    assert manifest.version == "0.1.1"
 
 
 def test_manifest_has_profiles():

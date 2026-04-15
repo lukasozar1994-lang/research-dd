@@ -1,4 +1,4 @@
-Uzyj GitHub MCP w tym workspace i wykonaj krotki smoke test dla repo `lukasozar1994-lang/szablon_agent`.
+Uzyj GitHub MCP w tym workspace i wykonaj krotki smoke test dla repo `lukasozar1994-lang/research-dd`.
 
 Wykonaj tylko te kroki:
 1. Pobierz liste etykiet repo.

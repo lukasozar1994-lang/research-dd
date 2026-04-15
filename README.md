@@ -19,7 +19,7 @@ A framework installer for research-driven development in VS Code with GitHub Cop
 ### Quick Start (via uvx)
 
 ```bash
-uvx --from git+https://github.com/lukasozar1994-lang/research-dd.git@v0.1.0 research-driven-setup
+uvx --from git+https://github.com/lukasozar1994-lang/research-dd.git@v0.1.1 research-driven-setup
 ```
 
 ### From Local Checkout

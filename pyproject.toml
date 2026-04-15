@@ -1,13 +1,13 @@
 [build-system]
-requires = ["setuptools>=75.0", "setuptools-scm>=8.0"]
+requires = ["setuptools>=75.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "research-driven-setup"
-version = "0.1.0"
+version = "0.1.1"
 description = "Framework installer for research-driven development in VS Code with GitHub Copilot Chat."
 readme = "docs/README_FRAMEWORK.md"
-license = { text = "MIT" }
+license = "MIT"
 requires-python = ">=3.12"
 dependencies = [
     "typer>=0.12,<1.0",
@@ -18,7 +18,9 @@ dependencies = [
 research-driven-setup = "research_driven_setup.cli:app"
 
 [tool.setuptools.packages.find]
-where = ["src"]
+where = ["."]
+include = ["research_driven_setup*"]
+exclude = ["*.__pycache__", "*.__pycache__.*"]
 
 [tool.setuptools.package-data]
 research_driven_setup = [

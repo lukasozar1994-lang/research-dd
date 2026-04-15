@@ -78,7 +78,7 @@ def test_install_marker_created(clean_workspace):
     marker = clean_workspace / ".research-driven" / "install.json"
     assert marker.exists()
     data = json.loads(marker.read_text())
-    assert data["version"] == "0.1.0"
+    assert data["version"] == "0.1.1"
     assert len(data["files_written"]) > 0
 
 
