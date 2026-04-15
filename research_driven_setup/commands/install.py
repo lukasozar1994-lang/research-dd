@@ -32,8 +32,19 @@ def install(
     non_interactive: bool = typer.Option(False, "--non-interactive", "--yes", "-y", help="Skip interactive prompts."),
 ) -> None:
     """Run the interactive install flow."""
-    target = workspace or Path.cwd()
-    target = target.resolve()
+    # When invoked via ctx.invoke() from the app callback, typer.Option defaults
+    # arrive as OptionInfo objects instead of resolved values.  Fall back to the
+    # intended defaults so both call paths work.
+    if not isinstance(workspace, Path):
+        workspace = None
+    if not isinstance(profile, str):
+        profile = None
+    if not isinstance(force, bool):
+        force = False
+    if not isinstance(non_interactive, bool):
+        non_interactive = False
+
+    target = (workspace or Path.cwd()).resolve()
 
     console.print()
     console.print(f"[bold]Target workspace:[/bold] {target}")
