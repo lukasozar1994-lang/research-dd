@@ -2,6 +2,12 @@
 /.venv
 /.pytest_cache
 /research_driven_setup.egg-info
+/.github
+/.research-driven
+/node_modules
+/.vscode
+/research_data
+
 
 # Python cache and compiled artifacts
 __pycache__/
@@ -14,3 +20,9 @@ __pycache__/
 .tox/
 .nox/
 .pytype/
+
+# Environment files and lock files
+*.env
+*.env.example
+*package-lock.json
+*package.json
