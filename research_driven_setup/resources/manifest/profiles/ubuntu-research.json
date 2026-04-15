@@ -1,0 +1,9 @@
+{
+  "name": "ubuntu-research",
+  "display_name": "Ubuntu Research (Default)",
+  "description": "Full research-driven development workflow for Ubuntu with VS Code and GitHub Copilot Chat. Includes deep research, planning, implementation, and diagnostics agents.",
+  "includes_playwright": false,
+  "mcp_servers": ["github", "sequential-thinking", "filesystem", "open-websearch", "context7"],
+  "managed_files": [],
+  "overlays": []
+}

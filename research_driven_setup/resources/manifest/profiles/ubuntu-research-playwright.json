@@ -1,0 +1,9 @@
+{
+  "name": "ubuntu-research-playwright",
+  "display_name": "Ubuntu Research + Playwright",
+  "description": "Research-driven workflow with Playwright browser automation for end-to-end testing and frontend debugging.",
+  "includes_playwright": true,
+  "mcp_servers": ["github", "sequential-thinking", "filesystem", "open-websearch", "context7"],
+  "managed_files": [],
+  "overlays": ["playwright"]
+}

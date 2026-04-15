@@ -1,0 +1,133 @@
+{
+  "version": "0.1.0",
+  "product_name": "research-driven-setup",
+  "default_profile": "ubuntu-research",
+  "profiles": ["ubuntu-research", "ubuntu-research-playwright"],
+  "prerequisites": [
+    {"name": "python3", "version": ">=3.12", "required": true},
+    {"name": "node", "version": ">=18.0", "required": true},
+    {"name": "npm", "version": ">=9.0", "required": true},
+    {"name": "npx", "required": true},
+    {"name": "git", "required": true},
+    {"name": "uv", "required": false},
+    {"name": "ripgrep", "required": false}
+  ],
+  "compatibility_aliases": {
+    "deep_reserch.agent.md": "deep-research.agent.md",
+    "agent_implementacja.prompt.md": "agent-implementation.prompt.md",
+    "workspace_creat.prompt.md": "workspace-create.prompt.md"
+  },
+  "managed_files": [
+    {"relative_path": ".github/agents/deep-research.agent.md", "source": "template", "overwrite_policy": "skip", "description": "Deep Research AI Agent"},
+    {"relative_path": ".github/agents/plan-architect.agent.md", "source": "template", "overwrite_policy": "skip", "description": "Plan Architect Agent"},
+    {"relative_path": ".github/agents/implement-worker.agent.md", "source": "template", "overwrite_policy": "skip", "description": "Implement Worker Agent"},
+    {"relative_path": ".github/agents/playwright-debug.agent.md", "source": "template", "overwrite_policy": "skip", "description": "Playwright Debug Agent"},
+    {"relative_path": ".github/agents/test-scenario-architect.agent.md", "source": "template", "overwrite_policy": "skip", "description": "Test Scenario Architect Agent"},
+    {"relative_path": ".github/agents/context7.agent.md", "source": "template", "overwrite_policy": "skip", "description": "Context7 Agent"},
+    {"relative_path": ".github/prompts/deep-research-workspace-setup.prompt.md", "source": "template", "overwrite_policy": "skip", "description": "Deep Research Workspace Setup Prompt"},
+    {"relative_path": ".github/prompts/implement-worker.prompt.md", "source": "template", "overwrite_policy": "skip", "description": "Implement Worker Prompt"},
+    {"relative_path": ".github/prompts/plan-project.prompt.md", "source": "template", "overwrite_policy": "skip", "description": "Plan Project Prompt"},
+    {"relative_path": ".github/prompts/mcp-setup.prompt.md", "source": "template", "overwrite_policy": "skip", "description": "MCP Setup Prompt"},
+    {"relative_path": ".github/prompts/github-mcp-oauth-smoke-test.prompt.md", "source": "template", "overwrite_policy": "skip", "description": "GitHub MCP OAuth Smoke Test"},
+    {"relative_path": ".github/prompts/agent-implementation.prompt.md", "source": "template", "overwrite_policy": "skip", "description": "Agent Implementation Prompt"},
+    {"relative_path": ".github/prompts/workspace-create.prompt.md", "source": "template", "overwrite_policy": "skip", "description": "Workspace Create Prompt"},
+    {"relative_path": ".github/instructions/python.instructions.md", "source": "template", "overwrite_policy": "skip", "description": "Python coding instructions"},
+    {"relative_path": ".github/instructions/playwright-cli.instructions.md", "source": "template", "overwrite_policy": "skip", "description": "Playwright CLI instructions"},
+    {"relative_path": ".github/scripts/start-context7-mcp.sh", "source": "template", "overwrite_policy": "overwrite", "description": "Context7 MCP startup script"},
+    {"relative_path": ".github/scripts/implement_worker/check-mcp-prereqs.mjs", "source": "template", "overwrite_policy": "overwrite", "description": "MCP prerequisites check"},
+    {"relative_path": ".github/scripts/implement_worker/branch-preflight.sh", "source": "template", "overwrite_policy": "overwrite", "description": "Branch preflight script"},
+    {"relative_path": ".github/scripts/implement_worker/build-execution-manifest.mjs", "source": "template", "overwrite_policy": "overwrite", "description": "Execution manifest builder"},
+    {"relative_path": ".github/scripts/implement_worker/collect-review-packet.mjs", "source": "template", "overwrite_policy": "overwrite", "description": "Review packet collector"},
+    {"relative_path": ".github/scripts/implement_worker/commit-after-gate.sh", "source": "template", "overwrite_policy": "overwrite", "description": "Commit after gate script"},
+    {"relative_path": ".github/scripts/implement_worker/write-execution-report.mjs", "source": "template", "overwrite_policy": "overwrite", "description": "Execution report writer"},
+    {"relative_path": ".github/skills/ai-prompt-engineering-safety-review", "source": "skill_catalog", "overwrite_policy": "skip", "description": "AI Prompt Engineering Safety Review"},
+    {"relative_path": ".github/skills/commit-after-gate", "source": "skill_catalog", "overwrite_policy": "skip", "description": "Commit After Gate"},
+    {"relative_path": ".github/skills/context-map", "source": "skill_catalog", "overwrite_policy": "skip", "description": "Context Map"},
+    {"relative_path": ".github/skills/create-agentsmd", "source": "skill_catalog", "overwrite_policy": "skip", "description": "Create AGENTS.md"},
+    {"relative_path": ".github/skills/create-implementation-plan", "source": "skill_catalog", "overwrite_policy": "skip", "description": "Create Implementation Plan"},
+    {"relative_path": ".github/skills/create-readme", "source": "skill_catalog", "overwrite_policy": "skip", "description": "Create README"},
+    {"relative_path": ".github/skills/create-specification", "source": "skill_catalog", "overwrite_policy": "skip", "description": "Create Specification"},
+    {"relative_path": ".github/skills/documentation-writer", "source": "skill_catalog", "overwrite_policy": "skip", "description": "Documentation Writer"},
+    {"relative_path": ".github/skills/execution-manifest", "source": "skill_catalog", "overwrite_policy": "skip", "description": "Execution Manifest"},
+    {"relative_path": ".github/skills/filesystem", "source": "skill_catalog", "overwrite_policy": "skip", "description": "Filesystem Management"},
+    {"relative_path": ".github/skills/gemini-api-python", "source": "skill_catalog", "overwrite_policy": "skip", "description": "Gemini API Python"},
+    {"relative_path": ".github/skills/javascript-typescript-jest", "source": "skill_catalog", "overwrite_policy": "skip", "description": "JavaScript TypeScript Jest"},
+    {"relative_path": ".github/skills/mcp-workspace-preflight", "source": "skill_catalog", "overwrite_policy": "skip", "description": "MCP Workspace Preflight"},
+    {"relative_path": ".github/skills/open-websearch", "source": "skill_catalog", "overwrite_policy": "skip", "description": "Open WebSearch"},
+    {"relative_path": ".github/skills/plan-architect-analysis", "source": "skill_catalog", "overwrite_policy": "skip", "description": "Plan Architect Analysis"},
+    {"relative_path": ".github/skills/plan-architect-implementation", "source": "skill_catalog", "overwrite_policy": "skip", "description": "Plan Architect Implementation"},
+    {"relative_path": ".github/skills/plan-architect-specification", "source": "skill_catalog", "overwrite_policy": "skip", "description": "Plan Architect Specification"},
+    {"relative_path": ".github/skills/plan-architect-stack-verification", "source": "skill_catalog", "overwrite_policy": "skip", "description": "Plan Architect Stack Verification"},
+    {"relative_path": ".github/skills/plan-architect-validation", "source": "skill_catalog", "overwrite_policy": "skip", "description": "Plan Architect Validation"},
+    {"relative_path": ".github/skills/playwright-cli", "source": "skill_catalog", "overwrite_policy": "skip", "description": "Playwright CLI"},
+    {"relative_path": ".github/skills/prepare-branch", "source": "skill_catalog", "overwrite_policy": "skip", "description": "Prepare Branch"},
+    {"relative_path": ".github/skills/report-execution", "source": "skill_catalog", "overwrite_policy": "skip", "description": "Report Execution"},
+    {"relative_path": ".github/skills/review-diff", "source": "skill_catalog", "overwrite_policy": "skip", "description": "Review Diff"},
+    {"relative_path": ".github/skills/sequential-thinking", "source": "skill_catalog", "overwrite_policy": "skip", "description": "Sequential Thinking"},
+    {"relative_path": ".github/skills/validate-task", "source": "skill_catalog", "overwrite_policy": "skip", "description": "Validate Task"},
+    {"relative_path": ".vscode/mcp.json", "source": "generated", "overwrite_policy": "overwrite", "description": "MCP server configuration"},
+    {"relative_path": ".vscode/settings.json", "source": "template", "overwrite_policy": "skip", "description": "VS Code settings"},
+    {"relative_path": "package.json", "source": "generated", "overwrite_policy": "skip", "description": "NPM package manifest"},
+    {"relative_path": ".env.example", "source": "generated", "overwrite_policy": "overwrite", "description": "Environment variable example"}
+  ],
+  "mcp_servers": [
+    {
+      "name": "github",
+      "config": {
+        "type": "http",
+        "url": "https://api.githubcopilot.com/mcp/",
+        "headers": {
+          "X-MCP-Toolsets": "context,repos,issues,pull_requests,actions,labels,notifications",
+          "X-MCP-Readonly": "true",
+          "X-MCP-Lockdown": "false"
+        }
+      },
+      "optional": false,
+      "trust_note": "GitHub MCP requires OAuth authentication in VS Code. After install, open the Command Palette → MCP: List Servers → Start 'github' → Complete OAuth."
+    },
+    {
+      "name": "sequential-thinking",
+      "config": {
+        "command": "npx",
+        "args": ["mcp-server-sequential-thinking"]
+      },
+      "optional": false
+    },
+    {
+      "name": "filesystem",
+      "config": {
+        "command": "npx",
+        "args": ["mcp-server-filesystem", "${workspaceFolder}"]
+      },
+      "optional": false
+    },
+    {
+      "name": "open-websearch",
+      "config": {
+        "command": "npx",
+        "args": ["open-websearch"],
+        "env": {
+          "MODE": "stdio",
+          "DEFAULT_SEARCH_ENGINE": "duckduckgo"
+        }
+      },
+      "optional": false
+    },
+    {
+      "name": "context7",
+      "config": {
+        "type": "stdio",
+        "command": "bash",
+        "args": ["${workspaceFolder}/.github/scripts/start-context7-mcp.sh"]
+      },
+      "optional": true,
+      "requires_secret": "CONTEXT7_API_KEY",
+      "trust_note": "Context7 requires a CONTEXT7_API_KEY. Get one at https://context7.com and add it to your .env file."
+    }
+  ],
+  "metadata": {
+    "product_name": "Research-Driven Setup",
+    "repository": "https://github.com/lukasozar1994-lang/szablon_agent",
+    "license": "MIT"
+  }
+}
