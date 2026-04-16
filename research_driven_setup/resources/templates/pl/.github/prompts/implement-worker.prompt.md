@@ -18,7 +18,7 @@ Musisz zinterpretować dane wejściowe użytkownika jako jedno z:
 
 ## Przepływ pracy
 
-1. Przeczytaj `03_specyfikacja_techniczna.md`, `05_architektura_i_mapa_plikow.md`, `06_plan_implementacji.md`, `07_task_breakdown.md`, `08_plan_testow.md`, `09_readiness_review.md`, `11_kryteria_akceptacji.md` i `artifacts/runtime_artifact_contract.json` z wybranego pakietu planu.
+1. Przeczytaj `02_konstytuacja_projektu.md` (najważniejszy priorytetowy dokument dla projektu), `03_specyfikacja_techniczna.md`, `05_architektura_i_mapa_plikow.md`, `06_plan_implementacji.md`, `07_task_breakdown.md`, `08_plan_testow.md`, `09_readiness_review.md`, `11_kryteria_akceptacji.md` i `artifacts/runtime_artifact_contract.json` z wybranego pakietu planu.
 2. Uruchom preflight MCP workspace przed jakąkolwiek pracą implementacyjną. Napraw brakujące wymagania lokalnych serwerów i zwaliduj konfigurację zdalną GitHub jeśli potrzeba.
 3. Zbuduj mapę kontekstu dla wybranego zakresu.
 4. Zbuduj manifest wykonania za pomocą `.github/scripts/implement_worker/build-execution-manifest.mjs`.

@@ -18,7 +18,7 @@ You must interpret the user input as one of:
 
 ## Workflow
 
-1. Read `03_specyfikacja_techniczna.md`, `05_architektura_i_mapa_plikow.md`, `06_plan_implementacji.md`, `07_task_breakdown.md`, `08_plan_testow.md`, `09_readiness_review.md`, `11_kryteria_akceptacji.md`, and `artifacts/runtime_artifact_contract.json` from the selected plan package.
+1. Read `02_konstytuacja_projektu.md` (main document of project), `03_specyfikacja_techniczna.md`, `05_architektura_i_mapa_plikow.md`, `06_plan_implementacji.md`, `07_task_breakdown.md`, `08_plan_testow.md`, `09_readiness_review.md`, `11_kryteria_akceptacji.md`, and `artifacts/runtime_artifact_contract.json` from the selected plan package.
 2. Run the MCP workspace preflight before any implementation work. Repair missing local server prerequisites and validate the GitHub remote configuration if needed.
 3. Build a context map for the selected scope.
 4. Build an execution manifest with `.github/scripts/implement_worker/build-execution-manifest.mjs`.
